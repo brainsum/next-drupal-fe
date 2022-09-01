@@ -52,7 +52,7 @@ export async function getStaticProps(
   let params = {}
   if (type === "node--article") {
     params = {
-      include: "uid,field_blocks,field_blocks.field_image",
+      include: "field_image,uid,field_blocks,field_blocks.field_image",
     }
   }
 
@@ -84,5 +84,6 @@ export async function getStaticProps(
     props: {
       resource,
     },
+    revalidate: 30,
   }
 }

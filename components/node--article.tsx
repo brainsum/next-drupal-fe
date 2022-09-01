@@ -32,10 +32,22 @@ export function NodeArticle({ node, ...props }: NodeArticleProps) {
   });
 
   const blocks = Object.values(organizedBlocks);
-
+  console.log(node.field_image);
   return (
     <article {...props}>
       <h1 className="mb-4 text-6xl font-black leading-tight">{node.title}</h1>
+      {node.field_image && (
+        <figure className="my-4">
+          <Image
+            src={absoluteUrl(node.field_image.uri.url)}
+            width={768}
+            height={480}
+            layout="responsive"
+            objectFit="cover"
+            alt={node.field_image.resourceIdObjMeta.alt}
+          />
+        </figure>
+      )}
       {blocks && blocks.map((b:BlockProps) => {
         switch(b.type) {
           case 'paragraph--columns':
