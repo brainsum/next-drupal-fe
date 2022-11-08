@@ -28,7 +28,7 @@ export function BlockImageWithText({ block, ...props }: BlockImageWithTextProps)
         {block.field_text?.processed && (
         <div
           dangerouslySetInnerHTML={{ __html: block.field_text?.processed }}
-          className="mt-6 font-serif max-w-none text-xl leading-loose prose"
+          className="mt-6 font-serif max-w-none text-xl leading-loose"
         />
       )}
     </div>
